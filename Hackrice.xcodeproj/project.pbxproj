@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		791C230C1DB29EC700BC7747 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 791C230B1DB29EC700BC7747 /* MapKit.framework */; };
 		79DCEB691DB02C64003D5910 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DCEB681DB02C64003D5910 /* AppDelegate.swift */; };
 		79DCEB6B1DB02C64003D5910 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DCEB6A1DB02C64003D5910 /* ViewController.swift */; };
 		79DCEB6E1DB02C64003D5910 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DCEB6C1DB02C64003D5910 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		791C230B1DB29EC700BC7747 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		79DCEB651DB02C64003D5910 /* Hackrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79DCEB681DB02C64003D5910 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79DCEB6A1DB02C64003D5910 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +31,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				791C230C1DB29EC700BC7747 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		791C230A1DB29EC700BC7747 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				791C230B1DB29EC700BC7747 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		79DCEB5C1DB02C64003D5910 = {
 			isa = PBXGroup;
 			children = (
 				79DCEB671DB02C64003D5910 /* Hackrice */,
 				79DCEB661DB02C64003D5910 /* Products */,
+				791C230A1DB29EC700BC7747 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +109,11 @@
 					79DCEB641DB02C64003D5910 = {
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -258,6 +275,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Hackrice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Hackathon.Hackrice;
@@ -270,6 +288,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Hackrice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Hackathon.Hackrice;
@@ -297,6 +316,7 @@
 				79DCEB791DB02C64003D5910 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
