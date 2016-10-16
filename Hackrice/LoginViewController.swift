@@ -8,10 +8,12 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController {
     
-    @IBOutlet weak var firstTextField: UITextField!
-    @IBOutlet weak var secondTextField: UITextField!
+    @IBOutlet weak var password: UITextField!
+
+    @IBOutlet weak var userName: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,20 +27,45 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    // MARK: - Delegate
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == firstTextField {
-            // Next was pressed
-            secondTextField.becomeFirstResponder()
-        } else if textField == secondTextField {
-            // Submit was pressed
-            textField.resignFirstResponder()
+    @IBAction func logIn(_ sender: AnyObject) {
+        let userNametext =  userName.text
+        let userPasswordText = password.text
+        
+        let userNameStored = UserDefaults.standard.string(forKey: "userName")
+        let userPasswordStored = UserDefaults.standard.string(forKey: "userPassword")
+        
+        if (userNametext?.isEmpty)! || (userPasswordText?.isEmpty)!{
+            displayAlertMessage(userMessage: "You must enter a username or password")
+
         }
         
-        
-        return true
+        if userNametext == userNameStored{
+            if userPasswordText == userPasswordStored{
+                UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                UserDefaults.standard.synchronize()
+                self.dismiss(animated: true, completion: nil)
+                performSegue(withIdentifier: "HomeScreen", sender: self)
+            }else{
+                displayAlertMessage(userMessage: "Username or password do not match our record")
+            }
+        }else{
+            displayAlertMessage(userMessage: "Username or password do not match our record")
+        }
+       
     }
+    func displayAlertMessage(userMessage:String){
+        
+        let myAlert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ok",  style: .default, handler:nil)
+        
+        myAlert.addAction(okAction)
+        
+        self.present(myAlert, animated: true, completion: nil)
+        
+        
+    }
+
     /*
      // MARK: - Navigation
      
