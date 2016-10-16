@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A5003FF1DB33E120022D34B /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5003FE1DB33E120022D34B /* DescriptionViewController.swift */; };
 		714F5FEE1DB2DB9500AD134D /* RoomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714F5FED1DB2DB9500AD134D /* RoomsTableViewController.swift */; };
 		714F5FF21DB2DC0100AD134D /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714F5FF11DB2DC0100AD134D /* Room.swift */; };
 		7196A3E41DB2F0FE002EB2AD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196A3E31DB2F0FE002EB2AD /* RegisterViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A5003FE1DB33E120022D34B /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		714F5FED1DB2DB9500AD134D /* RoomsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsTableViewController.swift; sourceTree = "<group>"; };
 		714F5FF11DB2DC0100AD134D /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		7196A3E31DB2F0FE002EB2AD /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				714F5FED1DB2DB9500AD134D /* RoomsTableViewController.swift */,
 				714F5FF11DB2DC0100AD134D /* Room.swift */,
 				7196A3E31DB2F0FE002EB2AD /* RegisterViewController.swift */,
+				0A5003FE1DB33E120022D34B /* DescriptionViewController.swift */,
 			);
 			path = Hackrice;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				7196A3E41DB2F0FE002EB2AD /* RegisterViewController.swift in Sources */,
 				714F5FF21DB2DC0100AD134D /* Room.swift in Sources */,
 				79DCEB691DB02C64003D5910 /* AppDelegate.swift in Sources */,
+				0A5003FF1DB33E120022D34B /* DescriptionViewController.swift in Sources */,
 				799A67B91DB2BE420071B05F /* LoginViewController.swift in Sources */,
 				799A67B51DB2BE3D0071B05F /* UserLogin.swift in Sources */,
 			);
