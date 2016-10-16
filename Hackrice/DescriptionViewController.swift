@@ -16,12 +16,32 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIImagePi
     
     @IBOutlet weak var displayImage: UIImageView!
     
+    @IBOutlet weak var priceButton: UITextField!
+    
+    @IBOutlet weak var schoolButton: UITextField!
+    @IBAction func postRoom(_ sender: AnyObject) {
+        
+        let price = Double(priceButton.text!)
+        let school = String(schoolButton.text!)
+        
+        let room = Room(price: price!,location: school!,image: currentImage)
+        //let dictionary = ["Price":price,"Image":currentImage] as [String : Any]
+        
+        delegate.postedRoomWithOptions(self, options: room as Room)
+        
+        navigationController?.popViewController(animated: true)
+        
+    }
+    
     @IBAction func addImages(_ sender: AnyObject) {
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
     }
+    
+    var delegate: RoomsTableViewController!
+    
     var currentImage: UIImage!
     
 //    func importPicture() {
@@ -47,12 +67,7 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIImagePi
         // Do any additional setup after loading the view.
         
         title = "Post room"
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(importPicture))
         
-        
-        
-        
-//        textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,4 +85,9 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIImagePi
     }
     */
 
+}
+
+protocol PostedRoomDelegate: class {
+    func postedRoomWithOptions(_ sender: DescriptionViewController, options: Room)
+    
 }

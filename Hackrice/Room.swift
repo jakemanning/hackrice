@@ -6,24 +6,27 @@
 //  Copyright © 2016 Rice Competition. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Reviews{
     var description:String
     var rating:Int
 }
 
-class Room{
-    var price, numNights, numGuests, numBeds:Int
+class Room: NSObject{
+    var price:Double//, numNights, numGuests, numBeds:Int
     var location:String
-    var reviews:[Reviews]
+    var image:UIImage
+   // var reviews:[Reviews]
     
-    init(price:Int, numNights:Int, numGuests:Int, numBeds:Int, location:String, reviews:[Reviews]){
-        self.price = numNights
-        self.numNights = numNights
-        self.numGuests = numGuests
-        self.numBeds = numBeds
+//    numNights:Int, numGuests:Int, numBeds:Int,
+    init(price:Double, location:String, image:UIImage){
+        self.price = price
+        self.image = image
+       // self.numNights = numNights
+       // self.numGuests = numGuests
+       // self.numBeds = numBeds
         self.location = location
-        self.reviews = reviews
+       // self.reviews = reviews
     }
 }

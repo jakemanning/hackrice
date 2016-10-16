@@ -13,6 +13,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
     @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var schoolButton: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +23,7 @@ class RegisterViewController: UIViewController {
         let userNameText =  userName.text
         let passwordText = password.text
         let confirmPasswordText = confirmPassword.text
+        let schoolText = schoolButton.text
         if((userNameText?.isEmpty)! || (passwordText?.isEmpty)! || (confirmPasswordText?.isEmpty)! ){
             displayAlertMessage(userMessage: "All Fields are required")
             return

@@ -83,14 +83,34 @@ class RoomsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? DescriptionViewController {
+            destination.delegate = self
+            
+        }
     }
-    */
+    
 
+}
+
+extension RoomsTableViewController: PostedRoomDelegate {
+    func postedRoomWithOptions(_ sender: DescriptionViewController, options: Room ){
+        if let price = options.price as? Double {
+            print(price)
+        }
+        if let school = options.location as? String {
+            print(school)
+        }
+        
+        if let currentImage = options.image as? UIImage {
+            print(currentImage)
+        }
+        
+    }
 }
