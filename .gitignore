@@ -22,7 +22,7 @@ xcuserdata/
 *.moved-aside
 *.xcuserstate
 *.xcworkspace/xcuserdata/
-
+Hackrice.xcodeproj/project.pbxproj
 ## Obj-C/Swift specific
 *.hmap
 *.ipa

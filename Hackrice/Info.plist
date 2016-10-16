@@ -36,5 +36,7 @@
 	</array>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>This app needs your location to look up colleges nearby</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This app needs to access your photos.</string>
 </dict>
 </plist>
