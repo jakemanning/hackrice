@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserLogin{
+class User {
     
     var guest_rating = 5.0
     var host_rating = 5.0
@@ -16,12 +16,13 @@ class UserLogin{
     var password: String
     var guest_reviews = [(String,Double)]()
     var host_reviews = [(String,Double)]()
+    var school: School
     
-    init(name: String, password: String)
+    init(name: String, password: String, school: School)
     {
         self.name = name
         self.password = password
-        
+        self.school = school
     }
     
     func addreview(description: String, temp_rating: Double, guest: Bool)

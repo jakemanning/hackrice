@@ -10,6 +10,8 @@ import UIKit
 
 class RoomsTableViewController: UITableViewController {
 
+    var rooms = [Room]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,15 +36,15 @@ class RoomsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return UserManager.sharedInstance.rooms.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "roomIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "roomIdentifier", for: indexPath) as! RoomTableViewCell
+        let row = indexPath.row
         // Configure the cell...
-        
+        cell.room = UserManager.sharedInstance.rooms[row]
 
         return cell
     }
@@ -93,6 +95,15 @@ class RoomsTableViewController: UITableViewController {
         if let destination = segue.destination as? DescriptionViewController {
             destination.delegate = self
             
+        } else if let destination = segue.destination as? RoomViewController {
+            
+            if let send = sender as? RoomTableViewCell {
+                let room = send.room
+                destination.priceForPrice = String(room!.price)
+                destination.imageForImage = room!.image
+                destination.name = UserManager.sharedInstance.user.name
+                destination.describeForDescribe = String(room!.describe)
+            }
         }
     }
     
@@ -100,17 +111,8 @@ class RoomsTableViewController: UITableViewController {
 }
 
 extension RoomsTableViewController: PostedRoomDelegate {
-    func postedRoomWithOptions(_ sender: DescriptionViewController, options: Room ){
-        if let price = options.price as? Double {
-            print(price)
-        }
-        if let school = options.location as? String {
-            print(school)
-        }
-        
-        if let currentImage = options.image as? UIImage {
-            print(currentImage)
-        }
-        
+    func postedRoomWithOptions(_ sender: DescriptionViewController, options: Room){
+        UserManager.sharedInstance.rooms.append(options)
+        tableView.reloadData()
     }
 }

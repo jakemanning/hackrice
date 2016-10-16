@@ -12,25 +12,22 @@ class DescriptionViewController: UIViewController, UITextViewDelegate, UIImagePi
 
     @IBOutlet weak var textView: UITextView!
     
+    @IBOutlet weak var describe: UILabel!
     @IBOutlet weak var images: UIButton!
     
     @IBOutlet weak var displayImage: UIImageView!
     
     @IBOutlet weak var priceButton: UITextField!
     
-    @IBOutlet weak var schoolButton: UITextField!
     @IBAction func postRoom(_ sender: AnyObject) {
         
         let price = Double(priceButton.text!)
-        let school = String(schoolButton.text!)
-        
-        let room = Room(price: price!,location: school!,image: currentImage)
+        let room = Room(price: price!,location: UserManager.sharedInstance.user.school.name, image: currentImage, user: UserManager.sharedInstance.user, describe: textView.text!)
         //let dictionary = ["Price":price,"Image":currentImage] as [String : Any]
         
         delegate.postedRoomWithOptions(self, options: room as Room)
         
         navigationController?.popViewController(animated: true)
-        
     }
     
     @IBAction func addImages(_ sender: AnyObject) {

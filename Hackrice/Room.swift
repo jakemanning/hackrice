@@ -8,25 +8,18 @@
 
 import UIKit
 
-struct Reviews{
-    var description:String
-    var rating:Int
-}
-
 class Room: NSObject{
-    var price:Double//, numNights, numGuests, numBeds:Int
+    var price:Double
     var location:String
     var image:UIImage
-   // var reviews:[Reviews]
-    
-//    numNights:Int, numGuests:Int, numBeds:Int,
-    init(price:Double, location:String, image:UIImage){
+    var user: User
+    var describe: String
+
+    init(price:Double, location:String, image:UIImage, user: User, describe: String){
         self.price = price
         self.image = image
-       // self.numNights = numNights
-       // self.numGuests = numGuests
-       // self.numBeds = numBeds
         self.location = location
-       // self.reviews = reviews
+        self.user = user
+        self.describe = describe
     }
 }

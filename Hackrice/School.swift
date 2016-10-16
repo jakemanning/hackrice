@@ -17,6 +17,7 @@ class School: NSObject {
     var city: String
     var state: String
     var location: CLLocation?
+    var distance: CLLocationDistance?
     
     init(row: [String]) {
         self.row = row
@@ -28,7 +29,7 @@ class School: NSObject {
     }
     
     override var description: String {
-        return "[" + name + ", " + String(describing: location!.coordinate.latitude) + "]"
+        return "[" + name + ", " + String(describing: distance!) + "]"
     }
     
 }
