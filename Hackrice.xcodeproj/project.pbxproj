@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		791681A11DB2FEF000EC023E /* SchoolLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791681A01DB2FEF000EC023E /* SchoolLocations.swift */; };
+		791681A31DB310D400EC023E /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791681A21DB310D400EC023E /* School.swift */; };
+		791681A51DB313DF00EC023E /* Schools.csv in Resources */ = {isa = PBXBuildFile; fileRef = 791681A41DB313DF00EC023E /* Schools.csv */; };
 		791C230C1DB29EC700BC7747 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 791C230B1DB29EC700BC7747 /* MapKit.framework */; };
 		799A67B51DB2BE3D0071B05F /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799A67B41DB2BE3D0071B05F /* UserLogin.swift */; };
-		799A67B71DB2BE400071B05F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799A67B61DB2BE400071B05F /* User.swift */; };
 		799A67B91DB2BE420071B05F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799A67B81DB2BE420071B05F /* LoginViewController.swift */; };
+		79A498761DB2F9F1007123E0 /* CSwiftV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A498751DB2F9F1007123E0 /* CSwiftV.swift */; };
 		79DCEB691DB02C64003D5910 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DCEB681DB02C64003D5910 /* AppDelegate.swift */; };
 		79DCEB6B1DB02C64003D5910 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DCEB6A1DB02C64003D5910 /* ViewController.swift */; };
 		79DCEB6E1DB02C64003D5910 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DCEB6C1DB02C64003D5910 /* Main.storyboard */; };
@@ -19,10 +22,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		791681A01DB2FEF000EC023E /* SchoolLocations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolLocations.swift; sourceTree = "<group>"; };
+		791681A21DB310D400EC023E /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
+		791681A41DB313DF00EC023E /* Schools.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Schools.csv; sourceTree = "<group>"; };
 		791C230B1DB29EC700BC7747 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		799A67B41DB2BE3D0071B05F /* UserLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
-		799A67B61DB2BE400071B05F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		799A67B81DB2BE420071B05F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		79A498751DB2F9F1007123E0 /* CSwiftV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSwiftV.swift; sourceTree = "<group>"; };
 		79DCEB651DB02C64003D5910 /* Hackrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79DCEB681DB02C64003D5910 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79DCEB6A1DB02C64003D5910 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +58,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		79A498791DB2FA98007123E0 /* TextParsing */ = {
+			isa = PBXGroup;
+			children = (
+				791681A41DB313DF00EC023E /* Schools.csv */,
+				79A498751DB2F9F1007123E0 /* CSwiftV.swift */,
+				791681A01DB2FEF000EC023E /* SchoolLocations.swift */,
+				791681A21DB310D400EC023E /* School.swift */,
+			);
+			name = TextParsing;
+			sourceTree = "<group>";
+		};
 		79DCEB5C1DB02C64003D5910 = {
 			isa = PBXGroup;
 			children = (
@@ -75,12 +92,12 @@
 				79DCEB681DB02C64003D5910 /* AppDelegate.swift */,
 				79DCEB6A1DB02C64003D5910 /* ViewController.swift */,
 				799A67B41DB2BE3D0071B05F /* UserLogin.swift */,
-				799A67B61DB2BE400071B05F /* User.swift */,
 				799A67B81DB2BE420071B05F /* LoginViewController.swift */,
 				79DCEB6C1DB02C64003D5910 /* Main.storyboard */,
 				79DCEB6F1DB02C64003D5910 /* Assets.xcassets */,
 				79DCEB711DB02C64003D5910 /* LaunchScreen.storyboard */,
 				79DCEB741DB02C64003D5910 /* Info.plist */,
+				79A498791DB2FA98007123E0 /* TextParsing */,
 			);
 			path = Hackrice;
 			sourceTree = "<group>";
@@ -152,6 +169,7 @@
 				79DCEB731DB02C64003D5910 /* LaunchScreen.storyboard in Resources */,
 				79DCEB701DB02C64003D5910 /* Assets.xcassets in Resources */,
 				79DCEB6E1DB02C64003D5910 /* Main.storyboard in Resources */,
+				791681A51DB313DF00EC023E /* Schools.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,11 +180,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				799A67B71DB2BE400071B05F /* User.swift in Sources */,
+				791681A31DB310D400EC023E /* School.swift in Sources */,
 				79DCEB6B1DB02C64003D5910 /* ViewController.swift in Sources */,
+				791681A11DB2FEF000EC023E /* SchoolLocations.swift in Sources */,
 				79DCEB691DB02C64003D5910 /* AppDelegate.swift in Sources */,
 				799A67B91DB2BE420071B05F /* LoginViewController.swift in Sources */,
 				799A67B51DB2BE3D0071B05F /* UserLogin.swift in Sources */,
+				79A498761DB2F9F1007123E0 /* CSwiftV.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +230,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -259,6 +280,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

@@ -17,15 +17,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var button: UIButton!
     
     var locationManager: CLLocationManager!
+    var userCity: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("Loaded application")
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestLocation()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.distanceFilter = 1000
+        }
         
     }
     
@@ -37,8 +40,42 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // MARK: - Delegate Functions
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Locations: \(locations)")
-        button.setTitle("Received Location", for: .normal)
-        print(button.titleLabel!.text!)
+        
+        CLGeocoder().reverseGeocodeLocation(locations[0], completionHandler: { [unowned self] (placemarks, error) -> Void in
+            guard error == nil else {
+                print("Reverse geocoder failed with error: " + error!.localizedDescription)
+                return
+            }
+            
+            guard placemarks != nil, placemarks!.count > 0 else {
+                print("Problem with the data received from geocoder")
+                return
+            }
+            
+            // Display location to console
+            let pm = placemarks![0] as CLPlacemark
+            guard let city = pm.locality else {
+                // Coordinates aren't close to a city
+                let alertController = UIAlertController(title: "Sorry", message: "You aren't in a city. Please move closer to a college", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+                
+                print("You aren't in a city. Please move closer to a college")
+                return
+            }
+            self.userCity = city
+            print(city)
+            
+            var schoolLocator = SchoolLocations(city: city)
+            schoolLocator.getCloseSchools() { (callback) in
+                if var colleges = callback {
+                    print(colleges)
+                    colleges = colleges.sorted(by: { $0.0.location!.distance(from: pm.location!) < $0.1.location!.distance(from: pm.location!) })
+                    print(colleges)
+                }
+            }
+            })
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -47,6 +84,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             print("Allowed location access")
         case .authorizedWhenInUse:
             print("Authorized when in use")
+            locationManager.requestLocation()
         case .denied:
             print("Denied")
         case .notDetermined:
@@ -54,7 +92,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         case .restricted:
             print("Restricted")
         }
-
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
